@@ -5,4 +5,4 @@ class ApiAppConfig(AppConfig):
     name = "project.app"
 
     def ready(self):
-        from project.app import signals
+        from project.app import signals  # noqa
