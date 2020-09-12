@@ -1,5 +1,8 @@
 from django.apps import AppConfig
 
 
-class AppConfig(AppConfig):
-    name = "app"
+class ApiAppConfig(AppConfig):
+    name = "project.app"
+
+    def ready(self):
+        from project.app import signals
