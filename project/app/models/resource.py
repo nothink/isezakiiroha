@@ -5,6 +5,7 @@ from django.db import models
 class Resource(models.Model):
     """vcardサーバから取得したリソースを管理するモデルクラス"""
 
+    # validator:
     validate_safe_key = RegexValidator(
         regex=r"^[0-9a-zA-Z:!/()*'.%@_-]+",
         message=("This key isn't a safe key for S3/GCS."),
