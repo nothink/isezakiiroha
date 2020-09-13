@@ -25,5 +25,5 @@ def fetch_and_upload_resource(sender, instance, **kwargs):
         blob.upload_from_file(buf)
         instance.fetched = True
     except Exception as e:
-        # なんらかのログを吐くべき
+        # TODO: なんらかのログを吐くべき
         print(e)
