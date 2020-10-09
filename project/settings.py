@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import random
 from pathlib import Path
 
 import environ
@@ -20,7 +21,18 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # https://django-environ.readthedocs.io/en/latest/
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False)
+    DEBUG=(bool, False),
+    SECRET_KEY=(
+        str,
+        "".join(
+            [
+                random.SystemRandom().choice(
+                    "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)"
+                )
+                for i in range(50)
+            ]
+        ),
+    ),
 )
 # reading .env file
 environ.Env.read_env(".env")
